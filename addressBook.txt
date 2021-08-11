@@ -1,1 +1,51 @@
 Welcome to address book service
+
+#UC1(Creating database)
+     
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| sys                |
++--------------------+
+//Create a database using 'CREATE DATABASE'command like:address_book_system.
+
+mysql> CREATE DATABASE address_book_service;
+Query OK, 1 row affected (0.02 sec)
+
+//To View  all databases.
+
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| address_book_service |
+| information_schema   |
+| mysql                |
+| payroll_service      |
+| performance_schema   |
+| sys                  |
++----------------------+
+6 rows in set (0.00 sec)
+
+//Use particular database using 'USE' command. 
+
+mysql> USE address_book_service;
+Database changed
+
+//To View particular database.
+
+mysql> SELECT DATABASE();
++----------------------+
+| DATABASE()           |
++----------------------+
+| address_book_service |
++----------------------+
+1 row in set (0.00 sec)
+
+
+
