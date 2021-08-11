@@ -47,5 +47,40 @@ mysql> SELECT DATABASE();
 +----------------------+
 1 row in set (0.00 sec)
 
+#UC2(Creating table)
+ //Create a table using 'CREATE TABLE' command.
+mysql> CREATE TABLE address_book           #Creating table
+    -> (
+    -> id             INT unsigned NOT NULL AUTO_INCREMENT, #Unique ID for the record
+    -> first_name     VARCHAR(50) NOT NULL,                  #FirstName of Address Book
+    -> Last_name      VARCHAR(50) NOT NULL,                  #LastName of Address Book
+    -> address        VARCHAR(150) NOT NULL,                 #Address of Address Book
+    -> city           VARCHAR(50)  NOT NULL,                 #City of Address Book
+    -> state          VARCHAR(50) NOT NULL,                  #state of Address Book
+    -> zip            INT(6) NOT NULL,                       #zip of Address Book
+    -> phone_number   INT(13) NOT NULL,                      #PhoneNumber of Address Book
+    -> email          VARCHAR(50)NOT NULL,                   #email of Address Book
+    -> PRIMARY KEY(id)                                       #id is Primary key
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.08 sec)
+
+//View the table using 'DESCRIBE'command.
+
+mysql> DESCRIBE address_book;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int unsigned | NO   | PRI | NULL    | auto_increment |
+| first_name   | varchar(50)  | NO   |     | NULL    |                |
+| Last_name    | varchar(50)  | NO   |     | NULL    |                |
+| address      | varchar(150) | NO   |     | NULL    |                |
+| city         | varchar(50)  | NO   |     | NULL    |                |
+| state        | varchar(50)  | NO   |     | NULL    |                |
+| zip          | int          | NO   |     | NULL    |                |
+| phone_number | int          | NO   |     | NULL    |                |
+| email        | varchar(50)  | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+9 rows in set (0.01 sec)
+
 
 
