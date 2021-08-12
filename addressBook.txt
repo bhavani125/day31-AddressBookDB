@@ -58,7 +58,7 @@ mysql> CREATE TABLE address_book           #Creating table
     -> city           VARCHAR(50)  NOT NULL,                 #City of Address Book
     -> state          VARCHAR(50) NOT NULL,                  #state of Address Book
     -> zip            INT(6) NOT NULL,                       #zip of Address Book
-    -> phone_number   INT(13) NOT NULL,                      #PhoneNumber of Address Book
+    -> phone_number   BIGINT NOT NULL,                      #PhoneNumber of Address Book
     -> email          VARCHAR(50)NOT NULL,                   #email of Address Book
     -> PRIMARY KEY(id)                                       #id is Primary key
     -> );
@@ -66,7 +66,7 @@ Query OK, 0 rows affected, 2 warnings (0.08 sec)
 
 //View the table using 'DESCRIBE'command.
 
-mysql> DESCRIBE address_book;
+mysql>  DESCRIBE address_book;
 +--------------+--------------+------+-----+---------+----------------+
 | Field        | Type         | Null | Key | Default | Extra          |
 +--------------+--------------+------+-----+---------+----------------+
@@ -77,10 +77,29 @@ mysql> DESCRIBE address_book;
 | city         | varchar(50)  | NO   |     | NULL    |                |
 | state        | varchar(50)  | NO   |     | NULL    |                |
 | zip          | int          | NO   |     | NULL    |                |
-| phone_number | int          | NO   |     | NULL    |                |
+| phone_number | bigint       | YES  |     | NULL    |                |
 | email        | varchar(50)  | NO   |     | NULL    |                |
 +--------------+--------------+------+-----+---------+----------------+
-9 rows in set (0.01 sec)
 
+#UC3(inserting values into the address_book table)
 
+mysql>  INSERT INTO address_book ( first_name, last_name, address, city, state, zip, phone_number, email ) VALUES
+    ->  ( 'Bhavani', 'Girineni', 'sivamRoad','Hyderabad', 'Telangana', 505174, 9989464121, 'girinenibhavani12@gmail.com'),
+    ->  ( 'Baby', 'muthineni', 'Nitture','Peddapally', 'Telangana', 505173, 8309483421, 'harish@gmail.com'),
+    ->  ( 'Manvi', 'Vivaramneni', 'Rekurthi','Karimnagar', 'Telangana', 505176, 9987654324, 'girinenibhani2@gmail.com'),
+    -> ( 'Harish', 'Dearajpally', 'Jangupally','Manthani', 'Telangana', 504567, 8309678332, 'vinay@gmail.com');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
 
+//To View avalues in a table.
+
+mysql> SELECT  * FROM address_book;
++----+------------+-------------+------------+------------+-----------+--------+--------------+-----------------------------+
+| id | first_name | Last_name   | address    | city       | state     | zip    | phone_number | email                       |
++----+------------+-------------+------------+------------+-----------+--------+--------------+-----------------------------+
+|  1 | Bhavani    | Girineni    | sivamRoad  | Hyderabad  | Telangana | 505174 |   9989464121 | girinenibhavani12@gmail.com |
+|  2 | Baby       | muthineni   | Nitture    | Peddapally | Telangana | 505173 |   8309483421 | harish@gmail.com            |
+|  3 | Manvi      | Vivaramneni | Rekurthi   | Karimnagar | Telangana | 505176 |   9987654324 | girinenibhani2@gmail.com    |
+|  4 | Harish     | Dearajpally | Jangupally | Manthani   | Telangana | 504567 |   8309678332 | vinay@gmail.com             |
++----+------------+-------------+------------+------------+-----------+--------+--------------+-----------------------------+
+4 rows in set (0.00 sec)
