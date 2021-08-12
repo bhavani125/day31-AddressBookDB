@@ -201,5 +201,30 @@ mysql> SELECT COUNT(first_name) FROM address_book WHERE city='Hyderabad' AND sta
 +-------------------+
 1 row in set (0.00 sec)
 
+#UC8( Retrive data in ascending order)
 
+mysql>  INSERT INTO address_book ( first_name, last_name, address, city, state, zip, phone_number, email ) VALUES
+    -> ( 'laxmi', 'Girineni', 'sivamRoad','Hyderabad', 'Telangana', 505134, 9989546789, 'laxmi2@gmail.com');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT  * FROM address_book;
++----+------------+-------------+-------------+-------------+-----------+--------+--------------+-----------------------------+
+| id | first_name | Last_name   | address     | city        | state     | zip    | phone_number | email                       |
++----+------------+-------------+-------------+-------------+-----------+--------+--------------+-----------------------------+
+|  1 | Bhavani    | Girineni    | secundrabad | Hyderabad   | Telangana | 505174 |   9989464121 | girinenibhavani12@gmail.com |
+|  3 | Manvi      | Vivaramneni | Rekurthi    | Sulthanabad | Telangana | 505176 |   9987654324 | girinenibhani2@gmail.com    |
+|  4 | Harish     | Dearajpally | Jangupally  | Manthani    | Telangana | 504567 |   8309678332 | vinay@gmail.com             |
+|  5 | laxmi      | Girineni    | sivamRoad   | Hyderabad   | Telangana | 505134 |   9989546789 | laxmi2@gmail.com            |
++----+------------+-------------+-------------+-------------+-----------+--------+--------------+-----------------------------+
+4 rows in set (0.00 sec)
+
+//Retrive data in ascending order
+mysql>  SELECT * FROM address_book WHERE city = 'Hyderabad' ORDER BY first_name;
++----+------------+-----------+-------------+-----------+-----------+--------+--------------+-----------------------------+
+| id | first_name | Last_name | address     | city      | state     | zip    | phone_number | email                       |
++----+------------+-----------+-------------+-----------+-----------+--------+--------------+-----------------------------+
+|  1 | Bhavani    | Girineni  | secundrabad | Hyderabad | Telangana | 505174 |   9989464121 | girinenibhavani12@gmail.com |
+|  5 | laxmi      | Girineni  | sivamRoad   | Hyderabad | Telangana | 505134 |   9989546789 | laxmi2@gmail.com            |
++----+------------+-----------+-------------+-----------+-----------+--------+--------------+-----------------------------+
+2 rows in set (0.00 sec)
 
