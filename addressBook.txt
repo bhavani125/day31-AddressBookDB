@@ -228,3 +228,54 @@ mysql>  SELECT * FROM address_book WHERE city = 'Hyderabad' ORDER BY first_name;
 +----+------------+-----------+-------------+-----------+-----------+--------+--------------+-----------------------------+
 2 rows in set (0.00 sec)
 
+#UC9
+
+mysql>  alter table address_book add addressbook_type varchar(150) AFTER email;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  alter table address_book add addressbook_name varchar(100) AFTER addressbook_type;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Describe address_book;
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| id               | int unsigned | NO   | PRI | NULL    | auto_increment |
+| first_name       | varchar(50)  | NO   |     | NULL    |                |
+| Last_name        | varchar(50)  | NO   |     | NULL    |                |
+| address          | varchar(150) | NO   |     | NULL    |                |
+| city             | varchar(50)  | NO   |     | NULL    |                |
+| state            | varchar(50)  | NO   |     | NULL    |                |
+| zip              | int          | NO   |     | NULL    |                |
+| phone_number     | bigint       | YES  |     | NULL    |                |
+| email            | varchar(50)  | NO   |     | NULL    |                |
+| addressbook_type | varchar(150) | YES  |     | NULL    |                |
+| addressbook_name | varchar(100) | YES  |     | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+
+11 rows in set (0.01 sec)
+
+mysql> UPDATE address_book SET addressbook_type = 'Friend', addressbook_name = 'FriendsBook' where first_name in ('Bhavani','laxmi');
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> UPDATE address_book SET addressbook_type = 'Family', addressbook_name = 'FamilyBook' where first_name in ('Harish');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book SET addressbook_type = 'Profession', addressbook_name = 'ProfessionBook' where first_name in ('Manvi');
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT  * FROM address_book;
++----+------------+-------------+-------------+-------------+-----------+--------+--------------+-----------------------------+------------------+------------------+
+| id | first_name | Last_name   | address     | city        | state     | zip    | phone_number | email                       | addressbook_type | addressbook_name |
++----+------------+-------------+-------------+-------------+-----------+--------+--------------+-----------------------------+------------------+------------------+
+|  1 | Bhavani    | Girineni    | secundrabad | Hyderabad   | Telangana | 505174 |   9989464121 | girinenibhavani12@gmail.com | Friend           | FriendsBook      |
+|  3 | Manvi      | Vivaramneni | Rekurthi    | Sulthanabad | Telangana | 505176 |   9987654324 | girinenibhani2@gmail.com    | Profession       | ProfessionBook   |
+|  4 | Harish     | Dearajpally | Jangupally  | Manthani    | Telangana | 504567 |   8309678332 | vinay@gmail.com             | Family           | FamilyBook       |
+|  5 | laxmi      | Girineni    | sivamRoad   | Hyderabad   | Telangana | 505134 |   9989546789 | laxmi2@gmail.com            | Friend           | FriendsBook      |
++----+------------+-------------+-------------+-------------+-----------+--------+--------------+-----------------------------+------------------+------------------+
+4 rows in set (0.00 sec)
+
