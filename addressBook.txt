@@ -296,3 +296,28 @@ mysql> SELECT COUNT(first_name) FROM address_book WHERE addressbook_type = 'Fami
 |                 1 |
 +-------------------+
 1 row in set (0.00 sec) 
+
+UC11(Adding contact)
+
+
+mysql>  INSERT INTO address_book ( first_name, last_name, address, city, state, zip, phone_number, email,addressbook_type,addressbook_name ) VALUES
+    -> ('Shyamala', 'perala', 'karimnagar', 'Hyderabad', 'Telangana', 568974, 9687451236, 'shyam@gmail.com', 'Family','FamilyBook');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO address_book ( first_name, last_name, address, city, state, zip, phone_number, email,addressbook_type,addressbook_name ) VALUES
+    -> ('Ramya', 'boppa', 'nekkonda', 'bradrachalam', 'Andhrapradesh', 568974, 9687455746, 'ramya@gmail.com', 'Friend','FriendsBook');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT  * FROM address_book;
++----+------------+-------------+-------------+--------------+---------------+--------+--------------+-----------------------------+------------------+------------------+
+| id | first_name | Last_name   | address     | city         | state         | zip    | phone_number | email                       | addressbook_type | addressbook_name |
++----+------------+-------------+-------------+--------------+---------------+--------+--------------+-----------------------------+------------------+------------------+
+|  1 | Bhavani    | Girineni    | secundrabad | Hyderabad    | Telangana     | 505174 |   9989464121 | girinenibhavani12@gmail.com | Friend           | FriendsBook      |
+|  3 | Manvi      | Vivaramneni | Rekurthi    | Sulthanabad  | Telangana     | 505176 |   9987654324 | girinenibhani2@gmail.com    | Profession       | ProfessionBook   |
+|  4 | Harish     | Dearajpally | Jangupally  | Manthani     | Telangana     | 504567 |   8309678332 | vinay@gmail.com             | Family           | FamilyBook       |
+|  5 | laxmi      | Girineni    | sivamRoad   | Hyderabad    | Telangana     | 505134 |   9989546789 | laxmi2@gmail.com            | Friend           | FriendsBook      |
+|  8 | Shyamala   | perala      | karimnagar  | Hyderabad    | Telangana     | 568974 |   9687451236 | shyam@gmail.com             | Family           | FamilyBook       |
+|  9 | Ramya      | boppa       | nekkonda    | bradrachalam | Andhrapradesh | 568974 |   9687455746 | ramya@gmail.com             | Friend           | FriendsBook      |
++----+------------+-------------+-------------+--------------+---------------+--------+--------------+-----------------------------+------------------+------------------+
+6 rows in set (0.00 sec)
+
